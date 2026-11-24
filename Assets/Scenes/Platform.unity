@@ -6164,6 +6164,9 @@ GameObject:
   - component: {fileID: 1926520781}
   - component: {fileID: 1926520782}
   - component: {fileID: 1926520783}
+  - component: {fileID: 1926520786}
+  - component: {fileID: 1926520785}
+  - component: {fileID: 1926520784}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6286,6 +6289,47 @@ MonoBehaviour:
   - {fileID: 1719312536824255913, guid: 4ec7b5326373106439608bac2a150a59, type: 3}
   throwOffset: {x: 0.6, y: 0.5}
   throwCooldown: 0.6
+--- !u!114 &1926520784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926520777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd13ffedb3172f4fa1af196285ea4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wallet
+  money: 0
+--- !u!114 &1926520785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926520777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64bf074f4ef8b34dafbb95581833237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Experience
+  xp: 0
+--- !u!114 &1926520786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926520777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2079bff265bfc6345a8201c05f8f0633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 5
+  currentHealth: 5
+  fallLimit: -10
 --- !u!1 &2023108351
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     SpriteRenderer sprite;
+    Animator anim;
     InputAction moveAction;
     InputAction jumpAction;
     float moveInput;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         // The key binds live in the InputSystem_Actions asset (Player map)
         moveAction = InputSystem.actions.FindAction("Move");
@@ -37,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
         // Face the way we're moving
         if (moveInput > 0) sprite.flipX = false;
         else if (moveInput < 0) sprite.flipX = true;
+
+        // Tell the Animator how fast we're moving (0 = Idle, above 0 = Walk)
+        anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
         // TODO (exercise part 1): if Jump was pressed this frame AND we are on the ground,
         // remember it: jumpRequested = true;
