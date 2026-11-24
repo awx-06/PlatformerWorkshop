@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 313586317999576417, guid: 298de4a064ab2bb4585fa53976700745, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1081957607628431115, guid: 298de4a064ab2bb4585fa53976700745, type: 3}
       propertyPath: m_Name
       value: Part2Enemy
