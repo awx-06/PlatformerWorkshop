@@ -39,10 +39,13 @@ public class Enemy : MonoBehaviour
     protected virtual void Move()
     {
         float distanceFromStart = transform.position.x - startPosition.x;
-        if (distanceFromStart > patrolDistance) direction = -1;
-        else if (distanceFromStart < -patrolDistance) direction = 1;
+        if (distanceFromStart > patrolDistance) 
+            direction = -1;
+        else if (distanceFromStart < -patrolDistance) 
+            direction = 1;
 
-        if (WallAhead()) direction = -direction;
+        if (WallAhead()) 
+            direction = -direction;
 
         rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
         sprite.flipX = direction < 0;       // Pixel Adventure characters face right
@@ -50,7 +53,8 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player")) return;
+        if (!collision.gameObject.CompareTag("Player")) 
+            return;
 
         Rigidbody2D playerBody = collision.rigidbody;
         bool landedOnHead = collision.collider.bounds.min.y > body.bounds.center.y;
@@ -86,7 +90,8 @@ public class Enemy : MonoBehaviour
     public virtual void TakeDamage(int amount)
     {
         health -= amount;
-        if (health <= 0) Die();
+        if (health <= 0) 
+            Die();
     }
 
     protected virtual void Die()
