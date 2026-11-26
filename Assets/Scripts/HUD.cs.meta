@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d7787e8f7fd5f8b44aef3828eae15f2e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - health: {instanceID: 0}
+  - wallet: {instanceID: 0}
+  - experience: {instanceID: 0}
+  - healthText: {instanceID: 0}
+  - moneyText: {instanceID: 0}
+  - xpText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

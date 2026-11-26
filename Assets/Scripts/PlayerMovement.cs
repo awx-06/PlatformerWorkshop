@@ -26,31 +26,26 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        // The key binds live in the InputSystem_Actions asset (Player map)
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
     }
 
-    // Every frame: read the keyboard
     void Update()
     {
         moveInput = moveAction.ReadValue<Vector2>().x;   // -1 = left, 0 = nothing, 1 = right
 
-        // Face the way we're moving
         if (moveInput > 0) sprite.flipX = false;
         else if (moveInput < 0) sprite.flipX = true;
 
-        // Tell the Animator how fast we're moving (0 = Idle, above 0 = Walk)
         anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
         // TODO (exercise part 1): if Jump was pressed this frame AND we are on the ground,
         // remember it: jumpRequested = true;
     }
 
-    // Every physics step: move the body
     void FixedUpdate()
     {
-        // Sideways speed from the input, keep the current up/down speed (gravity)
+
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
         // TODO (exercise part 2): if jumpRequested, set the upward speed to jumpForce
@@ -63,9 +58,4 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    // Draws the ground check circle in the Scene view when the Player is selected
-    void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null) Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
-    }
 }
