@@ -6442,6 +6442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TossAPotion
   potionPrefabs:
   - {fileID: 1719312536824255913, guid: 4ec7b5326373106439608bac2a150a59, type: 3}
+  - {fileID: 1719312536824255913, guid: b83e89db5e4dfb349a960c00b6faba8e, type: 3}
   throwOffset: {x: 0.6, y: 0.5}
   throwCooldown: 0.6
 --- !u!114 &1926520784

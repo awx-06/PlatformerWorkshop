@@ -7,8 +7,10 @@ public class Potion : MonoBehaviour
 
     public PotionType type = PotionType.Healing;
     public Vector2 throwVelocity = new Vector2(8f, 6f);   // sideways, upward
+    public int damage = 1;                                // only used by Damage potions
 
     Rigidbody2D rb;
+    bool used;
 
     void Awake()
     {
@@ -16,14 +18,14 @@ public class Potion : MonoBehaviour
 
         // Colour the sprite by type so you can tell them apart
         SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-        //if (sr != null)
-        //{
-        //    switch (type)
-        //    {
-        //        case PotionType.Healing: sr.color = Color.green; break;
-        //        case PotionType.Damage: sr.color = Color.red; break;
-        //    }
-        //}
+        if (sr != null)
+        {
+            //switch (type)
+            //{
+            //    case PotionType.Healing: sr.color = Color.green; break;
+            //    case PotionType.Damage: sr.color = Color.red; break;
+            //}
+        }
     }
 
     // Called by the thrower right after the potion is spawned
@@ -34,5 +36,18 @@ public class Potion : MonoBehaviour
 
         rb.linearVelocity = new Vector2(dir * throwVelocity.x + inheritedSpeedX, throwVelocity.y);
         rb.angularVelocity = -dir * 360f;   // spin
+    }
+
+    // Runs the moment the potion touches something
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (type != PotionType.Damage || used) return;
+
+        Enemy enemy = collision.collider.GetComponentInParent<Enemy>();
+        if (enemy == null) return;          // hit the ground or a wall: just stay there
+
+        used = true;                        // makes sure we only hit once
+        enemy.TakeDamage(damage);
+        Destroy(gameObject);                // the potion breaks on the enemy
     }
 }
